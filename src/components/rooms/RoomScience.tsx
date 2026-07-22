@@ -89,9 +89,10 @@ export function RoomScience() {
         const alpha = 0.5 * k;
         ctx.beginPath();
         ctx.arc(m.x, m.y, m.r * (1 + (1 - k) * 1.6), 0, Math.PI * 2);
+        // Science speaks green — a chemical reaction, with ion-teal highlights.
         ctx.fillStyle = m.warm
-          ? `rgba(255,122,26,${alpha})`
-          : `rgba(111,211,227,${alpha * 0.8})`;
+          ? `rgba(95,224,160,${alpha})`
+          : `rgba(111,211,227,${alpha * 0.85})`;
         ctx.fill();
       }
       ctx.globalCompositeOperation = "source-over";

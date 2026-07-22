@@ -2,19 +2,26 @@
 
 /*
  * ROBOKAMPÜS — "Ember in the Void"
- * Warm = human, energy, action. Cool = machine, structure, information.
+ * The ground stays cold and cinematic; the ENERGY is a small playful spectrum.
+ * Ember is the brand heart; each discipline owns one hue of the spark.
  */
 @theme {
-  --color-void: #07080b;
-  --color-graphite: #12141a;
-  --color-steel: #2a2e38;
-  --color-steel-soft: #1c1f27;
-  --color-bone: #eae6dd;
-  --color-mist: #8b909c;
-  --color-ink: #c9c5bc;
-  --color-ember: #ff7a1a;
+  --color-void: #08080f;
+  --color-graphite: #14151f;
+  --color-steel: #2c303c;
+  --color-steel-soft: #1e2029;
+  --color-bone: #f0ece3;
+  --color-mist: #8f94a2;
+  --color-ink: #cdc9c0;
+
+  /* The spark spectrum — warm to cool, each tied to a discipline. */
+  --color-ember: #ff7a1a; /* brand heart · robotics */
   --color-ember-hot: #ffb566;
-  --color-ion: #6fd3e3;
+  --color-gold: #ffc24b; /* logic games */
+  --color-lime: #5fe0a0; /* science */
+  --color-ion: #6fd3e3; /* data · structure */
+  --color-violet: #a98cff; /* mathematics */
+  --color-pink: #ff7ab6; /* technology */
 
   --font-display: var(--font-clash), "Avenir Next", "Helvetica Neue", sans-serif;
   --font-sans: var(--font-satoshi), system-ui, sans-serif;

@@ -52,6 +52,7 @@ export function ParticleScene() {
     let weights: [number, number, number] = [1, 0, 0];
     let wake = 0.15;
     let opacity = 0;
+    let warmth = 0; // 0 = full playful spectrum, higher = ember-dominant
 
     switch (chapter) {
       case "hero": {
@@ -78,6 +79,7 @@ export function ParticleScene() {
         weights = [1 - p, 0, p];
         wake = 0.9;
         opacity = 1;
+        warmth = p * 0.55; // the number leans ember so it stays legible
         break;
       }
       case "trust": {
@@ -103,6 +105,7 @@ export function ParticleScene() {
     w.z = THREE.MathUtils.damp(w.z, weights[2], 3.5, delta);
     u.uWake.value = THREE.MathUtils.damp(u.uWake.value, wake, 3, delta);
     u.uOpacity.value = THREE.MathUtils.damp(u.uOpacity.value, opacity, 4, delta);
+    u.uWarmth.value = THREE.MathUtils.damp(u.uWarmth.value, warmth, 3, delta);
     (u.uPointer.value as THREE.Vector3).set(
       (pointer.x * viewport.width) / 2,
       (pointer.y * viewport.height) / 2,

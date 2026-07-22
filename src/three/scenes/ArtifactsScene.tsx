@@ -69,12 +69,15 @@ interface ArtifactMaterials {
   wire: THREE.MeshBasicMaterial;
 }
 
-function makeMaterials(): ArtifactMaterials {
+/** Each artifact glows in its own discipline's hue. */
+const artifactAccents = ["#ff7a1a", "#5fe0a0", "#a98cff"];
+
+function makeMaterials(accent: string): ArtifactMaterials {
   return {
     body: new THREE.MeshStandardMaterial({
       color: "#2b3140", metalness: 0.35, roughness: 0.45, transparent: true,
     }),
-    ember: new THREE.MeshBasicMaterial({ color: "#ff7a1a", transparent: true }),
+    ember: new THREE.MeshBasicMaterial({ color: accent, transparent: true }),
     ion: new THREE.MeshBasicMaterial({ color: "#6fd3e3", transparent: true }),
     paper: new THREE.MeshBasicMaterial({ color: "#eae6dd", transparent: true }),
     wire: new THREE.MeshBasicMaterial({
@@ -108,7 +111,10 @@ export function ArtifactsScene({ locale }: { locale: Locale }) {
   const fade = useRef(0);
   const chapter = useExperience((s) => s.chapter);
 
-  const materials = useMemo(() => artifactParts.map(makeMaterials), []);
+  const materials = useMemo(
+    () => artifactParts.map((_, i) => makeMaterials(artifactAccents[i])),
+    [],
+  );
 
   useFrame((state, delta) => {
     const g = group.current;

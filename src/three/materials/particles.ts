@@ -38,14 +38,30 @@ void main() {
 `;
 
 const fragmentShader = /* glsl */ `
-uniform vec3 uColorA;
-uniform vec3 uColorB;
+uniform vec3 uEmber;
+uniform vec3 uGold;
+uniform vec3 uLime;
+uniform vec3 uIon;
+uniform vec3 uViolet;
+uniform vec3 uPink;
+uniform float uWarmth; // 1 = ember-dominant (proof/number), 0 = full playful spectrum
 uniform float uOpacity;
 varying float vAlpha;
 varying float vTint;
+
+// The spark spectrum: ember stays dominant, colourful sparks sprinkled through.
+vec3 spark(float t) {
+  if (t < 0.44) return uEmber;
+  if (t < 0.60) return uGold;
+  if (t < 0.74) return uLime;
+  if (t < 0.86) return uIon;
+  if (t < 0.94) return uViolet;
+  return uPink;
+}
+
 void main() {
   float m = smoothstep(0.5, 0.06, length(gl_PointCoord - 0.5));
-  vec3 col = mix(uColorA, uColorB, step(0.84, vTint));
+  vec3 col = mix(spark(vTint), uEmber, uWarmth * step(0.44, vTint) * 0.8);
   gl_FragColor = vec4(col, m * vAlpha * uOpacity);
 }
 `;
@@ -64,8 +80,13 @@ export function createParticlesMaterial() {
       uPointer: { value: new THREE.Vector3(999, 999, 0) },
       uSize: { value: 0.16 },
       uOpacity: { value: 0 },
-      uColorA: { value: new THREE.Color("#ff7a1a") },
-      uColorB: { value: new THREE.Color("#6fd3e3") },
+      uWarmth: { value: 0 },
+      uEmber: { value: new THREE.Color("#ff7a1a") },
+      uGold: { value: new THREE.Color("#ffc24b") },
+      uLime: { value: new THREE.Color("#5fe0a0") },
+      uIon: { value: new THREE.Color("#6fd3e3") },
+      uViolet: { value: new THREE.Color("#a98cff") },
+      uPink: { value: new THREE.Color("#ff7ab6") },
     },
   });
 }

@@ -10,6 +10,7 @@ import { RoomScience } from "@/components/rooms/RoomScience";
 import { RoomMath } from "@/components/rooms/RoomMath";
 import { RoomLogic } from "@/components/rooms/RoomLogic";
 import { RoomTech } from "@/components/rooms/RoomTech";
+import { hue } from "@/content/hues";
 
 const byRoom = (room: string) => programs.find((p) => p.room === room)!;
 
@@ -26,9 +27,10 @@ function RoomHeader({
 }) {
   const alignClass =
     align === "right" ? "items-end text-right" : align === "center" ? "items-center text-center" : "items-start";
+  const accent = hue[room.room];
   return (
     <div className={`flex max-w-md flex-col ${alignClass}`}>
-      <span className="instrument mb-3 block !text-ember">
+      <span className="instrument mb-3 block" style={{ color: accent }}>
         {locale === "tr" ? "ODA" : "ROOM"} {String(index).padStart(2, "0")}
       </span>
       <h3 className="display text-[clamp(1.7rem,3.4vw,2.7rem)] text-bone">
@@ -59,7 +61,10 @@ export function Disciplines({ locale }: { locale: Locale }) {
       </div>
 
       {/* Room 01 — Robotics: schematic left-void, the arm owns the right */}
-      <div className="grid min-h-screen grid-cols-1 items-center gap-8 px-6 py-16 md:grid-cols-12 md:px-10">
+      <div
+        className="grid min-h-screen grid-cols-1 items-center gap-8 px-6 py-16 md:grid-cols-12 md:px-10"
+        style={{ background: "radial-gradient(70% 60% at 75% 50%, rgba(255,122,26,0.08), transparent 70%)" }}
+      >
         <div className="md:col-span-4">
           <RoomHeader index={1} locale={locale} room={byRoom("robotics")} />
         </div>
@@ -69,7 +74,10 @@ export function Disciplines({ locale }: { locale: Locale }) {
       </div>
 
       {/* Room 02 — Science: full-bleed reaction chamber, header floats right */}
-      <div className="relative min-h-screen bg-graphite/40">
+      <div
+        className="relative min-h-screen"
+        style={{ background: "radial-gradient(65% 55% at 40% 55%, rgba(95,224,160,0.09), transparent 70%)" }}
+      >
         <div className="absolute inset-0">
           <RoomScience />
         </div>
@@ -81,7 +89,10 @@ export function Disciplines({ locale }: { locale: Locale }) {
       </div>
 
       {/* Room 03 — Mathematics: the curve is the altar, centered */}
-      <div className="flex min-h-screen flex-col items-center justify-center gap-8 px-6 py-16">
+      <div
+        className="flex min-h-screen flex-col items-center justify-center gap-8 px-6 py-16"
+        style={{ background: "radial-gradient(55% 55% at 50% 55%, rgba(169,140,255,0.10), transparent 70%)" }}
+      >
         <RoomHeader index={3} locale={locale} room={byRoom("mathematics")} align="center" />
         <div className="h-[44vh] w-full md:h-[52vh]">
           <RoomMath />
@@ -89,7 +100,10 @@ export function Disciplines({ locale }: { locale: Locale }) {
       </div>
 
       {/* Room 04 — Logic: the puzzle works while the copy watches */}
-      <div className="grid min-h-screen grid-cols-1 items-center gap-12 bg-graphite/40 px-6 py-16 md:grid-cols-2 md:px-10">
+      <div
+        className="grid min-h-screen grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-10"
+        style={{ background: "radial-gradient(60% 55% at 35% 50%, rgba(255,194,75,0.08), transparent 70%)" }}
+      >
         <div className="flex justify-center">
           <RoomLogic />
         </div>
@@ -99,7 +113,10 @@ export function Disciplines({ locale }: { locale: Locale }) {
       </div>
 
       {/* Room 05 — Technology: a device boots as you arrive */}
-      <div className="flex min-h-screen flex-col items-center justify-center gap-10 px-6 py-16 md:flex-row md:gap-24">
+      <div
+        className="flex min-h-screen flex-col items-center justify-center gap-10 px-6 py-16 md:flex-row md:gap-24"
+        style={{ background: "radial-gradient(60% 55% at 62% 55%, rgba(255,122,182,0.09), transparent 70%)" }}
+      >
         <RoomHeader index={5} locale={locale} room={byRoom("technology")} />
         <RoomTech locale={locale} />
       </div>

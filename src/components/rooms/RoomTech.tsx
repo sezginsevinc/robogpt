@@ -51,13 +51,13 @@ export function RoomTech({ locale }: { locale: Locale }) {
           <span className="instrument text-[10px]">RK-TERMINAL</span>
           <span
             className={`size-2 rounded-full transition-colors duration-500 ${
-              booted ? "bg-ember shadow-[0_0_10px_rgba(255,122,26,0.8)]" : "bg-steel"
+              booted ? "bg-pink shadow-[0_0_10px_rgba(255,122,182,0.8)]" : "bg-steel"
             }`}
           />
         </div>
         <div className="min-h-28 font-mono text-[13px] leading-7 text-ink">
           {bootLines[locale].slice(0, visibleLines).map((line, i) => (
-            <p key={i} className={i === 2 ? "text-ember" : undefined}>
+            <p key={i} className={i === 2 ? "text-pink" : undefined}>
               {line}
             </p>
           ))}
@@ -71,12 +71,12 @@ export function RoomTech({ locale }: { locale: Locale }) {
                 transitionDelay: `${i * 180}ms`,
                 background: booted
                   ? i === 1
-                    ? "rgba(255,122,26,0.18)"
+                    ? "rgba(255,122,182,0.18)"
                     : "rgba(111,211,227,0.10)"
                   : "transparent",
                 borderColor: booted
                   ? i === 1
-                    ? "rgba(255,122,26,0.5)"
+                    ? "rgba(255,122,182,0.5)"
                     : "rgba(111,211,227,0.35)"
                   : undefined,
               }}

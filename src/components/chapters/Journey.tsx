@@ -6,6 +6,18 @@ import { chapters } from "@/content/chapters";
 import type { Locale } from "@/content/locale";
 import { useChapter, useScrub } from "@/motion/useChapter";
 
+// The journey travels the whole spark spectrum — curiosity warms into
+// achievement. Failure (index 2) stays ember: the ember never fully goes out.
+const stageHues = [
+  "#ffc24b", // curiosity — gold
+  "#5fe0a0", // experiment — lime
+  "#ff7a1a", // failure — ember
+  "#6fd3e3", // iteration — ion
+  "#a98cff", // confidence — violet
+  "#ff7ab6", // creation — pink
+  "#ffb566", // achievement — ember-hot
+];
+
 /** Chapter 5 — the learning journey as transformation. Words pass through as the object is forged. */
 export function Journey({ locale }: { locale: Locale }) {
   const sectionRef = useChapter<HTMLElement>("journey");
@@ -59,13 +71,18 @@ export function Journey({ locale }: { locale: Locale }) {
           {c.stages.map((stage, i) => (
             <div key={i} data-stage className="absolute text-center">
               <p
-                className="display text-[clamp(2.6rem,8vw,6.5rem)] text-bone"
-                style={{ textShadow: "0 2px 28px rgba(7,8,11,0.95), 0 0 10px rgba(7,8,11,0.7)" }}
+                className="display text-[clamp(2.6rem,8vw,6.5rem)]"
+                style={{
+                  color: stageHues[i],
+                  textShadow: "0 2px 28px rgba(8,8,15,0.95), 0 0 10px rgba(8,8,15,0.7)",
+                }}
               >
                 {stage[locale]}
               </p>
               {i === 2 && (
-                <p className="instrument mt-4 !text-ember">{c.failureNote[locale]}</p>
+                <p className="instrument mt-4" style={{ color: "var(--color-ember)" }}>
+                  {c.failureNote[locale]}
+                </p>
               )}
             </div>
           ))}

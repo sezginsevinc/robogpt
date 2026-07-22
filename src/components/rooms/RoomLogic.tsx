@@ -79,7 +79,7 @@ export function RoomLogic() {
               key={tile}
               className={`absolute flex items-center justify-center rounded-sm border text-lg transition-all duration-300 ${
                 solved
-                  ? "border-ember/70 text-ember shadow-[0_0_18px_rgba(255,122,26,0.25)]"
+                  ? "border-gold/70 text-gold shadow-[0_0_18px_rgba(255,194,75,0.28)]"
                   : "border-steel text-mist"
               }`}
               style={{
@@ -96,7 +96,10 @@ export function RoomLogic() {
           );
         })}
       </div>
-      <span className="instrument text-[10px] tabular-nums">
+      <span
+        className="instrument text-[10px] tabular-nums"
+        style={solved ? { color: "var(--color-gold)" } : undefined}
+      >
         {solved ? "SOLVED" : `${String(states.length - 1 - step).padStart(2, "0")} →`}
       </span>
     </div>
