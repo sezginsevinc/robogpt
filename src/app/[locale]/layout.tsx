@@ -5,6 +5,7 @@ import { clash, satoshi, jetbrains } from "@/lib/fonts";
 import { locales, isLocale, type Locale } from "@/content/locale";
 import { site } from "@/content/site";
 import { ExperienceProvider } from "@/components/providers/ExperienceProvider";
+import { Atmosphere } from "@/components/providers/Atmosphere";
 import { Hud } from "@/components/hud/Hud";
 import { EmberCursor } from "@/components/hud/EmberCursor";
 
@@ -73,6 +74,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <ExperienceProvider>
+          <Atmosphere />
           <Hud locale={locale} />
           {children}
           <EmberCursor />

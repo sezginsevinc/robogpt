@@ -32,7 +32,7 @@ export function Discovery({ locale }: { locale: Locale }) {
   const c = chapters.discovery;
 
   return (
-    <section ref={sectionRef} className="pointer-events-auto relative h-[280vh]">
+    <section ref={sectionRef} id="sec-discovery" className="pointer-events-auto relative h-[280vh]">
       <div className="sticky top-0 flex h-screen items-center">
         <div className="grid w-full grid-cols-1 gap-10 px-6 md:grid-cols-12 md:px-10">
           <div className="md:col-span-5">

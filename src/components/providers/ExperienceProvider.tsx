@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/motion/gsap";
+import { registerLenis } from "@/motion/scroll";
 import { useExperience } from "@/stores/experience";
 import { useQuality } from "@/stores/quality";
 
@@ -22,11 +23,13 @@ export function ExperienceProvider({ children }: { children: React.ReactNode }) 
     if (!ready || tier === "still") return;
     const lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
     lenis.on("scroll", ScrollTrigger.update);
+    registerLenis(lenis);
     const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
     return () => {
       gsap.ticker.remove(raf);
+      registerLenis(null);
       lenis.destroy();
     };
   }, [ready, tier]);

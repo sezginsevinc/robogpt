@@ -6,17 +6,19 @@
  * Ember is the brand heart; each discipline owns one hue of the spark.
  */
 @theme {
-  --color-void: #08080f;
-  --color-graphite: #14151f;
-  --color-steel: #2c303c;
-  --color-steel-soft: #1e2029;
+  --color-void: #0d0e18;
+  --color-graphite: #191b26;
+  --color-steel: #333749;
+  --color-steel-soft: #23252f;
   --color-bone: #f0ece3;
   --color-mist: #8f94a2;
   --color-ink: #cdc9c0;
 
-  /* The spark spectrum — warm to cool, each tied to a discipline. */
-  --color-ember: #ff7a1a; /* brand heart · robotics */
-  --color-ember-hot: #ffb566;
+  /* The spark spectrum. `ember` is the historical codename for the brand
+     accent — now brand blue (#0061AF family), tuned brighter for legibility
+     on the dark ground. It drives CTAs, focus, links, the core and glows. */
+  --color-ember: #2e86d6; /* brand blue · robotics */
+  --color-ember-hot: #78bef5;
   --color-gold: #ffc24b; /* logic games */
   --color-lime: #5fe0a0; /* science */
   --color-ion: #6fd3e3; /* data · structure */
@@ -131,6 +133,44 @@ body {
   }
   100% {
     transform: translateY(32px);
+  }
+}
+
+/* Atmosphere — the living nebula behind the void. Transform-only drift = GPU-cheap. */
+@keyframes atmo-drift-a {
+  0%,
+  100% {
+    transform: translate3d(-6%, -4%, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(8%, 6%, 0) scale(1.2);
+  }
+}
+@keyframes atmo-drift-b {
+  0%,
+  100% {
+    transform: translate3d(6%, 8%, 0) scale(1.15);
+  }
+  50% {
+    transform: translate3d(-8%, -6%, 0) scale(1);
+  }
+}
+@keyframes atmo-drift-c {
+  0%,
+  100% {
+    transform: translate3d(4%, -8%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-6%, 6%, 0) scale(1.25);
+  }
+}
+@keyframes atmo-twinkle {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.9;
   }
 }
 

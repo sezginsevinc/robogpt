@@ -54,7 +54,7 @@ export function EmberCursor() {
       className="pointer-events-none fixed left-0 top-0 z-[90] hidden size-[10px] rounded-full bg-ember mix-blend-screen md:block"
       style={{
         boxShadow:
-          "0 0 10px rgba(255,122,26,0.9), 0 0 34px rgba(255,122,26,0.35)",
+          "0 0 10px rgba(46,134,214,0.9), 0 0 34px rgba(46,134,214,0.35)",
       }}
     />
   );

@@ -11,11 +11,11 @@ import { useChapter, useScrub } from "@/motion/useChapter";
 const stageHues = [
   "#ffc24b", // curiosity — gold
   "#5fe0a0", // experiment — lime
-  "#ff7a1a", // failure — ember
+  "#2e86d6", // failure — ember
   "#6fd3e3", // iteration — ion
   "#a98cff", // confidence — violet
   "#ff7ab6", // creation — pink
-  "#ffb566", // achievement — ember-hot
+  "#78bef5", // achievement — ember-hot
 ];
 
 /** Chapter 5 — the learning journey as transformation. Words pass through as the object is forged. */
@@ -58,7 +58,7 @@ export function Journey({ locale }: { locale: Locale }) {
   });
 
   return (
-    <section ref={sectionRef} className="pointer-events-auto relative h-[460vh]">
+    <section ref={sectionRef} id="sec-journey" className="pointer-events-auto relative h-[460vh]">
       <div className="sticky top-0 flex h-screen flex-col items-center justify-between overflow-hidden py-24">
         <div className="max-w-md px-6 text-center">
           <span className="instrument mb-3 block !text-ember">

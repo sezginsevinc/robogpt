@@ -8,7 +8,7 @@ import type { Program } from "./programs";
 export type Room = Program["room"];
 
 export const hue: Record<Room, string> = {
-  robotics: "#ff7a1a",
+  robotics: "#2e86d6",
   science: "#5fe0a0",
   mathematics: "#a98cff",
   logic: "#ffc24b",

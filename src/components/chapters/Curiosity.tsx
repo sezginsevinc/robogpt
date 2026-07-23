@@ -54,7 +54,7 @@ export function Curiosity({ locale }: { locale: Locale }) {
           </p>
         </div>
         {c.questions.map((question, i) => (
-          <div key={i} className="flex h-screen items-center justify-center px-6">
+          <div key={i} data-stop={`q-${i}`} className="flex h-screen items-center justify-center px-6">
             <div data-question className="text-center">
               <span className="instrument mb-4 block text-[10px] !text-ember">
                 S.{String(i + 1).padStart(2, "0")}

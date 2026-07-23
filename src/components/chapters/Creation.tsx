@@ -13,7 +13,7 @@ export function Creation({ locale }: { locale: Locale }) {
   const c = chapters.creation;
 
   return (
-    <section ref={sectionRef} className="pointer-events-none relative h-[340vh]">
+    <section ref={sectionRef} id="sec-creation" className="pointer-events-none relative h-[340vh]">
       <div className="sticky top-0 flex h-screen flex-col justify-between px-6 py-24 md:px-10">
         <div className="max-w-md">
           <span className="instrument mb-4 block !text-ember">

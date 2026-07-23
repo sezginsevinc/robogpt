@@ -43,7 +43,7 @@ export function Trust({ locale }: { locale: Locale }) {
   const offsets = ["46%", "54%", "48%"];
 
   return (
-    <section ref={sectionRef} className="pointer-events-auto relative h-[340vh]">
+    <section ref={sectionRef} id="sec-trust" className="pointer-events-auto relative h-[340vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
         <div className="max-w-md px-6 pt-24 md:px-10">
           <span className="instrument mb-4 block !text-ember">
@@ -65,7 +65,7 @@ export function Trust({ locale }: { locale: Locale }) {
           >
             <span
               className="mx-auto mb-6 block size-2 rounded-full bg-ember"
-              style={{ boxShadow: "0 0 12px rgba(255,122,26,0.9), 0 0 48px rgba(255,122,26,0.4)" }}
+              style={{ boxShadow: "0 0 12px rgba(46,134,214,0.9), 0 0 48px rgba(46,134,214,0.4)" }}
             />
             <blockquote className="display text-[clamp(1.3rem,2.6vw,2rem)] leading-snug text-bone">
               “{testimonial.quote[locale]}”

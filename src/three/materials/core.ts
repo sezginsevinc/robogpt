@@ -83,10 +83,10 @@ varying vec3 vView;
 varying float vNoise;
 void main() {
   float fres = pow(1.0 - abs(dot(normalize(vNormal), normalize(vView))), 2.2);
-  vec3 body = mix(vec3(0.028, 0.03, 0.045), uColorA * 0.55, 0.12 + uEnergy * 0.45);
+  vec3 body = mix(vec3(0.07, 0.10, 0.16), uColorA * 0.9, 0.24 + uEnergy * 0.45);
   body += uColorA * max(vNoise, 0.0) * 0.16 * uEnergy;
-  vec3 col = mix(body, uColorB, fres * (0.3 + uEnergy * 0.7));
-  col += uColorB * fres * fres * (0.45 + uEnergy * 0.8);
+  vec3 col = mix(body, uColorB, fres * (0.45 + uEnergy * 0.6));
+  col += uColorB * fres * fres * (0.6 + uEnergy * 0.8);
   gl_FragColor = vec4(col, uOpacity);
 }
 `;
@@ -101,8 +101,8 @@ export function createCoreMaterial() {
       uPulse: { value: 1 },
       uEnergy: { value: 0.25 },
       uOpacity: { value: 1 },
-      uColorA: { value: new THREE.Color("#ff7a1a") },
-      uColorB: { value: new THREE.Color("#ffb566") },
+      uColorA: { value: new THREE.Color("#2e86d6") }, // warm heart (body)
+      uColorB: { value: new THREE.Color("#6fd3e3") }, // cool halo (fresnel rim)
     },
   });
 }

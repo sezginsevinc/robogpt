@@ -21,7 +21,7 @@ export function VisitForm({ locale }: { locale: Locale }) {
       <div className="glass max-w-lg rounded-lg p-8">
         <span
           className="mb-5 block size-2.5 rounded-full bg-ember"
-          style={{ boxShadow: "0 0 12px rgba(255,122,26,0.9)" }}
+          style={{ boxShadow: "0 0 12px rgba(46,134,214,0.9)" }}
         />
         <p className="display text-2xl text-bone">{visitCopy.success[locale]}</p>
       </div>
@@ -64,7 +64,7 @@ export function VisitForm({ locale }: { locale: Locale }) {
       <button
         type="submit"
         data-interactive
-        className="instrument mt-3 self-start rounded-full bg-ember px-7 py-3.5 !text-void transition-shadow duration-500 hover:shadow-[0_0_24px_rgba(255,122,26,0.45)]"
+        className="instrument mt-3 self-start rounded-full bg-ember px-7 py-3.5 !text-void transition-shadow duration-500 hover:shadow-[0_0_24px_rgba(46,134,214,0.45)]"
       >
         {visitCopy.submit[locale]}
       </button>

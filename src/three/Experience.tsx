@@ -25,30 +25,20 @@ export default function Experience({ locale }: { locale: Locale }) {
     return () => window.clearTimeout(id);
   }, []);
 
-  if (!ready || !mounted) return null;
-
-  if (tier === "still") {
-    return (
-      <div
-        aria-hidden
-        className="fixed inset-0 z-0"
-        style={{
-          background:
-            "radial-gradient(52% 42% at 50% 42%, rgba(255,122,26,0.14), transparent 70%)," +
-            "radial-gradient(80% 60% at 50% 110%, rgba(111,211,227,0.05), transparent 60%)",
-        }}
-      />
-    );
-  }
+  // "still" tier renders no WebGL — the Atmosphere layer alone carries the
+  // background, so there's nothing to mount here.
+  if (!ready || !mounted || tier === "still") return null;
 
   return (
-    <div aria-hidden className="fixed inset-0 z-0">
+    <div aria-hidden className="fixed inset-0 z-[1]">
       <Canvas
         dpr={tier === "full" ? [1, 2] : [1, 1.5]}
         camera={{ position: [0, 0, 7], fov: 40 }}
-        gl={{ antialias: true, powerPreference: "high-performance" }}
+        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        onCreated={({ gl }) => gl.setClearAlpha(0)}
       >
-        <ambientLight intensity={0.4} color="#46506a" />
+        <ambientLight intensity={0.95} color="#6c7690" />
+        <hemisphereLight args={["#9db0d0", "#12141f", 0.85]} />
         <CoreScene />
         <ParticleScene />
         <ArtifactsScene locale={locale} />

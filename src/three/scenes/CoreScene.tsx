@@ -23,6 +23,10 @@ export function CoreScene() {
   const coreMaterial = useMemo(createCoreMaterial, []);
   const glowTexture = useMemo(createGlowTexture, []);
 
+  // Warm ember heart, cool halo: the fresnel rim breathes between ion and violet.
+  const rimIon = useMemo(() => new THREE.Color("#6fd3e3"), []);
+  const rimViolet = useMemo(() => new THREE.Color("#a98cff"), []);
+
   const shards = useMemo(
     () => splitIntoShards(new THREE.IcosahedronGeometry(1.4, 1)),
     [],
@@ -30,13 +34,13 @@ export function CoreScene() {
   const panelMaterial = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: "#1c202b",
-        metalness: 0.5,
-        roughness: 0.42,
+        color: "#3a4272", // cool violet-steel casing, matched to the halo
+        metalness: 0.3,
+        roughness: 0.5,
         flatShading: true,
         transparent: true,
         side: THREE.DoubleSide,
-        emissive: new THREE.Color("#ff7a1a"),
+        emissive: new THREE.Color("#6fd3e3"),
         emissiveIntensity: 0,
       }),
     [],
@@ -112,6 +116,13 @@ export function CoreScene() {
     coreMaterial.uniforms.uEnergy.value = energyU + pointerNear * 0.12;
     coreMaterial.uniforms.uPulse.value = 1 + Math.sin(t * 1.4) * 0.25;
     coreMaterial.uniforms.uOpacity.value = fade.current;
+    // Rim drifts ion → violet → ion; pointer proximity nudges it toward violet.
+    const rimMix = 0.5 + 0.5 * Math.sin(t * 0.35) * 0.7 + pointerNear * 0.2;
+    (coreMaterial.uniforms.uColorB.value as THREE.Color)
+      .copy(rimIon)
+      .lerp(rimViolet, THREE.MathUtils.clamp(rimMix, 0, 1));
+    // Seams glow the same cool tone as the halo, so casing and core breathe together.
+    panelMaterial.emissive.copy(coreMaterial.uniforms.uColorB.value as THREE.Color);
 
     panelMaterial.opacity = fade.current * (1 - o * 0.55);
     // Awake, the machine's warmth leaks through the seams of its shell.
@@ -166,7 +177,7 @@ export function CoreScene() {
         />
       </sprite>
 
-      <pointLight ref={lightRef} color="#ff7a1a" distance={12} decay={2} />
+      <pointLight ref={lightRef} color="#2e86d6" distance={12} decay={2} />
       <directionalLight position={[-4, 3, 5]} intensity={1.1} color="#8fb6c9" />
       <directionalLight position={[3, 2, 6]} intensity={0.5} color="#d8cfc0" />
     </group>

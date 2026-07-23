@@ -81,7 +81,7 @@ export function createParticlesMaterial() {
       uSize: { value: 0.16 },
       uOpacity: { value: 0 },
       uWarmth: { value: 0 },
-      uEmber: { value: new THREE.Color("#ff7a1a") },
+      uEmber: { value: new THREE.Color("#2e86d6") },
       uGold: { value: new THREE.Color("#ffc24b") },
       uLime: { value: new THREE.Color("#5fe0a0") },
       uIon: { value: new THREE.Color("#6fd3e3") },

@@ -70,12 +70,12 @@ interface ArtifactMaterials {
 }
 
 /** Each artifact glows in its own discipline's hue. */
-const artifactAccents = ["#ff7a1a", "#5fe0a0", "#a98cff"];
+const artifactAccents = ["#2e86d6", "#5fe0a0", "#a98cff"];
 
 function makeMaterials(accent: string): ArtifactMaterials {
   return {
     body: new THREE.MeshStandardMaterial({
-      color: "#2b3140", metalness: 0.35, roughness: 0.45, transparent: true,
+      color: "#454f68", metalness: 0.2, roughness: 0.52, transparent: true,
     }),
     ember: new THREE.MeshBasicMaterial({ color: accent, transparent: true }),
     ion: new THREE.MeshBasicMaterial({ color: "#6fd3e3", transparent: true }),
@@ -151,8 +151,8 @@ export function ArtifactsScene({ locale }: { locale: Locale }) {
   return (
     <group ref={group}>
       <directionalLight position={[3, 4, 6]} intensity={2.4} color="#c9d4e0" />
-      <directionalLight position={[-4, -2, 4]} intensity={0.8} color="#ffb566" />
-      <pointLight position={[0, -2, 3]} intensity={6} color="#ff7a1a" distance={10} />
+      <directionalLight position={[-4, -2, 4]} intensity={0.8} color="#78bef5" />
+      <pointLight position={[0, -2, 3]} intensity={6} color="#2e86d6" distance={10} />
       {artifactParts.map((parts, i) => (
         <group
           key={projects[i].slug}

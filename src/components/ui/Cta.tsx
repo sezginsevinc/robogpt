@@ -38,7 +38,7 @@ export function Cta({
       className={
         ghost
           ? "instrument link-stroke !text-bone/80 transition-colors hover:!text-bone"
-          : "instrument rounded-full bg-ember px-7 py-3.5 !text-void transition-shadow duration-500 hover:shadow-[0_0_24px_rgba(255,122,26,0.45),0_0_80px_rgba(255,122,26,0.2)]"
+          : "instrument rounded-full bg-ember px-7 py-3.5 !text-void transition-shadow duration-500 hover:shadow-[0_0_24px_rgba(46,134,214,0.45),0_0_80px_rgba(46,134,214,0.2)]"
       }
       style={{ transition: "transform 0.3s cubic-bezier(0.16,1,0.3,1)" }}
     >

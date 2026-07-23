@@ -62,8 +62,9 @@ export function Disciplines({ locale }: { locale: Locale }) {
 
       {/* Room 01 — Robotics: schematic left-void, the arm owns the right */}
       <div
+        data-stop="room-0"
         className="grid min-h-screen grid-cols-1 items-center gap-8 px-6 py-16 md:grid-cols-12 md:px-10"
-        style={{ background: "radial-gradient(70% 60% at 75% 50%, rgba(255,122,26,0.08), transparent 70%)" }}
+        style={{ background: "radial-gradient(70% 60% at 75% 50%, rgba(46,134,214,0.08), transparent 70%)" }}
       >
         <div className="md:col-span-4">
           <RoomHeader index={1} locale={locale} room={byRoom("robotics")} />
@@ -75,6 +76,7 @@ export function Disciplines({ locale }: { locale: Locale }) {
 
       {/* Room 02 — Science: full-bleed reaction chamber, header floats right */}
       <div
+        data-stop="room-1"
         className="relative min-h-screen"
         style={{ background: "radial-gradient(65% 55% at 40% 55%, rgba(95,224,160,0.09), transparent 70%)" }}
       >
@@ -90,6 +92,7 @@ export function Disciplines({ locale }: { locale: Locale }) {
 
       {/* Room 03 — Mathematics: the curve is the altar, centered */}
       <div
+        data-stop="room-2"
         className="flex min-h-screen flex-col items-center justify-center gap-8 px-6 py-16"
         style={{ background: "radial-gradient(55% 55% at 50% 55%, rgba(169,140,255,0.10), transparent 70%)" }}
       >
@@ -101,6 +104,7 @@ export function Disciplines({ locale }: { locale: Locale }) {
 
       {/* Room 04 — Logic: the puzzle works while the copy watches */}
       <div
+        data-stop="room-3"
         className="grid min-h-screen grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-2 md:px-10"
         style={{ background: "radial-gradient(60% 55% at 35% 50%, rgba(255,194,75,0.08), transparent 70%)" }}
       >
@@ -114,6 +118,7 @@ export function Disciplines({ locale }: { locale: Locale }) {
 
       {/* Room 05 — Technology: a device boots as you arrive */}
       <div
+        data-stop="room-4"
         className="flex min-h-screen flex-col items-center justify-center gap-10 px-6 py-16 md:flex-row md:gap-24"
         style={{ background: "radial-gradient(60% 55% at 62% 55%, rgba(255,122,182,0.09), transparent 70%)" }}
       >

@@ -34,7 +34,7 @@ export function Epilogue({ locale }: { locale: Locale }) {
   ];
 
   return (
-    <section ref={sectionRef} className="pointer-events-auto relative h-[240vh]">
+    <section ref={sectionRef} id="sec-epilogue" className="pointer-events-auto relative h-[240vh]">
       <div className="sticky top-0 flex h-screen flex-col items-center justify-center px-6">
         <p ref={line1Ref} className="instrument absolute max-w-sm text-center leading-relaxed">
           {c.line1[locale]}

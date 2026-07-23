@@ -31,7 +31,7 @@ export function Proof({ locale }: { locale: Locale }) {
   const c = chapters.proof;
 
   return (
-    <section ref={sectionRef} className="pointer-events-auto relative h-[260vh]">
+    <section ref={sectionRef} id="sec-proof" className="pointer-events-auto relative h-[260vh]">
       <div className="sticky top-0 flex h-screen flex-col justify-between px-6 py-24 md:px-10">
         <div className="max-w-md">
           <span className="instrument mb-4 block !text-ember">

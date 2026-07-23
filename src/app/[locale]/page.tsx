@@ -12,6 +12,7 @@ import { Proof } from "@/components/chapters/Proof";
 import { Trust } from "@/components/chapters/Trust";
 import { Campus } from "@/components/chapters/Campus";
 import { Epilogue } from "@/components/chapters/Epilogue";
+import { ScrollNav } from "@/components/hud/ScrollNav";
 
 /** The Experience — eight chapters, one scroll. */
 export default async function ExperiencePage({
@@ -27,7 +28,7 @@ export default async function ExperiencePage({
       <CanvasRoot locale={locale} />
       {/* pointer-events-none lets Chapter 3/8 interactions fall through to the
           canvas; every DOM-interactive chapter re-enables its own events. */}
-      <main className="pointer-events-none relative z-10">
+      <main id="experience" className="pointer-events-none relative z-10">
         <Hero locale={locale} />
         <Curiosity locale={locale} />
         <Discovery locale={locale} />
@@ -39,6 +40,7 @@ export default async function ExperiencePage({
         <Campus locale={locale} />
         <Epilogue locale={locale} />
       </main>
+      <ScrollNav locale={locale} />
       <ProjectOverlay locale={locale} />
     </>
   );

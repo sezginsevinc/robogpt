@@ -36,20 +36,20 @@ export function ForgeScene() {
   const material = useMemo(
     () =>
       new THREE.MeshStandardMaterial({
-        color: "#1a1d26",
-        metalness: 0.7,
-        roughness: 0.34,
+        color: "#3a4056",
+        metalness: 0.3,
+        roughness: 0.5,
         flatShading: true,
         transparent: true,
         side: THREE.DoubleSide,
-        emissive: new THREE.Color("#ff7a1a"),
+        emissive: new THREE.Color("#2e86d6"),
         emissiveIntensity: 0,
       }),
     [],
   );
   const ringMaterial = useMemo(
     () =>
-      new THREE.MeshBasicMaterial({ color: "#ffb566", transparent: true, opacity: 0 }),
+      new THREE.MeshBasicMaterial({ color: "#78bef5", transparent: true, opacity: 0 }),
     [],
   );
   const q = useMemo(() => new THREE.Quaternion(), []);
@@ -75,7 +75,7 @@ export function ForgeScene() {
       if (!shard || child.type !== "Mesh") return;
       const spread = disorder * (0.6 + shard.rand * 1.4);
       child.position.copy(shard.centroid).addScaledVector(shard.scatterDir, spread);
-      q.setFromAxisAngle(shard.spinAxis, disorder * shard.rand * 3.2);
+      q.setFromAxisAngle(shard.spinAxis, disorder * shard.rand * 1.9);
       child.quaternion.copy(q);
     });
 
@@ -83,10 +83,10 @@ export function ForgeScene() {
     material.emissiveIntensity = glow * 1.05;
     if (spriteMatRef.current) spriteMatRef.current.opacity = fade.current * glow * 0.85;
     ringMaterial.opacity = fade.current * THREE.MathUtils.smoothstep(p, 0.72, 0.85) * 0.6;
-    if (ringRef.current) ringRef.current.rotation.z = t * 0.2;
+    if (ringRef.current) ringRef.current.rotation.z = t * 0.1;
 
-    g.rotation.y = t * (0.12 + glow * 0.18);
-    g.rotation.x = Math.sin(t * 0.3) * 0.08;
+    g.rotation.y = t * (0.05 + glow * 0.07);
+    g.rotation.x = Math.sin(t * 0.22) * 0.06;
   });
 
   return (
@@ -106,7 +106,7 @@ export function ForgeScene() {
           blending={THREE.AdditiveBlending}
         />
       </sprite>
-      <pointLight color="#ff7a1a" intensity={10} distance={9} decay={2} />
+      <pointLight color="#2e86d6" intensity={10} distance={9} decay={2} />
       <directionalLight position={[-4, 3, 5]} intensity={0.9} color="#8fb6c9" />
     </group>
   );

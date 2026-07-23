@@ -28,7 +28,7 @@ export function CampusScene() {
             metalness: 0.35,
             roughness: 0.6,
             transparent: true,
-            emissive: new THREE.Color("#ff7a1a"),
+            emissive: new THREE.Color("#2e86d6"),
             emissiveIntensity: 0,
           }),
       ),
@@ -144,9 +144,9 @@ export function CampusScene() {
 
       <mesh ref={markerRef} rotation={[-Math.PI / 2, 0, 0]}>
         <circleGeometry args={[0.12, 24]} />
-        <meshBasicMaterial color="#ffb566" transparent />
+        <meshBasicMaterial color="#78bef5" transparent />
       </mesh>
-      <pointLight ref={lightRef} color="#ff9a45" distance={4.5} decay={2} />
+      <pointLight ref={lightRef} color="#4fa0e0" distance={4.5} decay={2} />
       <directionalLight position={[-3, 6, 4]} intensity={0.7} color="#8fb6c9" />
     </group>
   );
